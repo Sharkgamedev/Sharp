@@ -1,10 +1,11 @@
 ﻿using OpenTK.Graphics.OpenGL4;
 using System;
 using System.IO;
+using Sharp.Common.Logging;
 
 namespace Sharp.Engine
 {
-    class Shader
+    public class Shader
     {
         public int Handle;
 
@@ -23,13 +24,17 @@ namespace Sharp.Engine
 
             GL.GetProgram(Handle, GetProgramParameterName.LinkStatus, out int code);
             if (code != (int)All.True)
-                throw new Exception($"Error occurred whilst linking Program({Handle})");
-
+            {
+                Logger.Log($"Error occurred during Shader Program Linking ({Handle})", Logger.ErrorLevel.Error);
+                throw new Exception($"Error occurred during Shader Program Linking ({Handle})");
+            }
 
             GL.DetachShader(Handle, _vertexShader);
             GL.DetachShader(Handle, _fragmentShader);
             GL.DeleteShader(_vertexShader);
             GL.DeleteShader(_fragmentShader);
+
+            Engine.RegisterShader(this);
         }
 
         private void CreateShader(ShaderType type, string path, out int handle)
@@ -44,7 +49,8 @@ namespace Sharp.Engine
             if (code != (int)All.True)
             {
                 string infoLog = GL.GetShaderInfoLog(handle);
-                throw new Exception($"Error occurred whilst compiling Shader({handle}).\n\n{infoLog}");
+                Logger.Log($"Error occurred during Shader compilation ({handle}).\n\n{infoLog}", Logger.ErrorLevel.Error);
+                throw new Exception($"Error occurred during Shader compilation ({handle}).\n\n{infoLog}");
             }
         }
 

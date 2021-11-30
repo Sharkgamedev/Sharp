@@ -8,6 +8,17 @@
 
   <ItemGroup>
     <PackageReference Include="Octokit" Version="0.50.0" />
+    <PackageReference Include="OpenTK" Version="4.6.7" />
+    <PackageReference Include="OpenTK.GLWpfControl" Version="4.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="App.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sharp.Common\Sharp.Common.csproj" />
+    <ProjectReference Include="..\Sharp.Engine\Sharp.Engine.csproj" />
   </ItemGroup>
 
 </Project>

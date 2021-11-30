@@ -9,10 +9,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project CD", "Project CD\Pr
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sharp.Engine", "Sharp.Engine\Sharp.Engine.csproj", "{DE1EF468-D527-4761-8CD1-55710DA2EF0D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{45E6AB9B-44F7-4505-9DA3-5F0A6C795136} = {45E6AB9B-44F7-4505-9DA3-5F0A6C795136}
+		{44090ECA-FD90-4C21-AC33-191BE7644385} = {44090ECA-FD90-4C21-AC33-191BE7644385}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sharp.Engine.Tests", "Sharp.Engine.Tests\Sharp.Engine.Tests.csproj", "{45E6AB9B-44F7-4505-9DA3-5F0A6C795136}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sharp.Editor", "Sharp.Editor\Sharp.Editor.csproj", "{509A856D-2C05-46A7-8B76-839110C2F42D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{78F89898-47F0-4B4A-A1E2-19993BE1BD53} = {78F89898-47F0-4B4A-A1E2-19993BE1BD53}
+		{44090ECA-FD90-4C21-AC33-191BE7644385} = {44090ECA-FD90-4C21-AC33-191BE7644385}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sharp.Editor.Tests", "Sharp.Editor.Tests\Sharp.Editor.Tests.csproj", "{78F89898-47F0-4B4A-A1E2-19993BE1BD53}"
 EndProject

@@ -1,0 +1,32 @@
+﻿<Window x:Class="Sharp.Editor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:glWpfControl="clr-namespace:OpenTK.Wpf;assembly=GLWpfControl"
+        xmlns:local="clr-namespace:Sharp.Editor"
+        mc:Ignorable="d"
+        Title="Sharp Editor" Height="450" Width="800">
+    <Grid Background="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}">
+        <TabControl Background="#FF6A6A6A" BorderBrush="#FF464646" Foreground="#FF858585" Height="125" VerticalAlignment="Bottom">
+            <TabItem Header="Assets">
+                <Grid Background="#7C7C7C"/>
+            </TabItem>
+            <TabItem Header="Audio">
+                <Grid Background="#7C7C7C"/>
+            </TabItem>
+        </TabControl>
+        <Rectangle HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="0,27,0,127" Stroke="Black" Width="127" Fill="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}"/>
+        <Grid Height="27" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}">
+            <TextBlock Text="File" FontSize="20"></TextBlock>
+            <TextBlock Margin="40,0,0,0" Text="Edit" FontSize="20"></TextBlock>
+            <TextBlock Margin="80,0,0,0"  Text="Options" FontSize="20"></TextBlock>
+        </Grid>
+        <Rectangle HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="0,27,0,127" Stroke="Black" Width="100" Fill="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}"/>
+
+        <glWpfControl:GLWpfControl
+            x:Name="View"
+            Render="View_Render" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="127,27,100,127"
+            />
+    </Grid>
+</Window>

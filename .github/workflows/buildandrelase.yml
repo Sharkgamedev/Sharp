@@ -1,0 +1,80 @@
+name: Sharp Engine Build And Release
+ 
+on:
+  push:
+    branches:
+      - prod
+ 
+env:
+ Actions_Allow_Unsecure_Commands: true # Allows AddPAth and SetEnv commands
+      
+jobs:
+  build:
+    runs-on: windows-latest
+ 
+    steps:
+    - uses: actions/checkout@v1
+      name: Checkout Code
+     
+    - name: Setup MSBuild Path
+      uses: warrenbuckley/Setup-MSBuild@v1
+       
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.2
+     
+    - name: Restore NuGet Packages
+      run: nuget restore "Sharp.sln"
+ 
+    - name: Build and Publish App
+      run: msbuild "Sharp.sln" /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
+ 
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: published_webapp
+        path: Sharp.Editor\bin\Release\netcoreapp5.0\
+      
+    - name: Rename Folder
+      run: |
+       cd Sharp.Editor\bin\Release\
+       ren netcoreapp5.0 "Sharp Editor Stable"
+      
+    - name: Create archive
+      run: Compress-Archive -Path "Sharp.Editor\bin\Release\Sharp Editor Stable\" -DestinationPath "Sharp.Editor\bin\Release\Sharp Editor Stable\Sharp.Editor.zip"
+ 
+    - name: Read version from XML file
+      id: getxmlversion
+      uses: mavrosxristoforos/get-xml-info@1.0
+      with:
+        xml-file: 'Sharp.Editor\Sharp.Editor.csproj'
+        xpath: '//PropertyGroup//Version'
+        
+    - name: Read release notes from XML file
+      id: getxmlchangenotes
+      uses: mavrosxristoforos/get-xml-info@1.0
+      with:
+       xml-file: 'Sharp.Editor\Sharp.Editor.csproj'
+       xpath: '//PropertyGroup//PackageReleaseNotes'
+
+    - name: Create release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: v${{ steps.getxmlversion.outputs.info }}
+        release_name:  Sharp Editor v${{ steps.getxmlversion.outputs.info }}
+        body: ${{ steps.getxmlchangenotes.outputs.info }}
+        draft: false
+        prerelease: true
+
+    - name: Update release asset
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}  
+        asset_path: 'Sharp.Editor\bin\Release\Sharp Editor Stable\Sharp.Editor.zip'
+        asset_name: Sharp.Editor.zip
+        asset_content_type: application/zip
