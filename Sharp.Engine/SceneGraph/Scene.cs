@@ -7,6 +7,8 @@ namespace Sharp.Engine
     {
         public List<Object> Objects = new List<Object>();
 
+        public string Name;
+
         public void Load()
         {
             foreach (Object obj in Objects) obj.Load();

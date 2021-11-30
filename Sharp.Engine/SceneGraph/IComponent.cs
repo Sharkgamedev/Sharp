@@ -2,8 +2,10 @@
 
 namespace Sharp.Engine
 {
-    interface IComponent : ILoaded
+    public interface IComponent : ILoaded
     {
+        public string Data { get; set; }
+
         public void Init();
     }
 }

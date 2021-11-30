@@ -5,21 +5,21 @@ namespace Sharp.Engine
 {
     public class Object : ILoaded
     {
-        private List<IComponent> _components = new List<IComponent>();
+        public List<IComponent> Components = new List<IComponent>();
 
         public void Load()
         {
-            foreach (IComponent component in _components) component.Load();
+            foreach (IComponent component in Components) component.Load();
         }
 
         public void Update()
         {
-            foreach (IComponent component in _components) component.Update();
+            foreach (IComponent component in Components) component.Update();
         }
 
         public void Render()
         {
-            foreach (IComponent component in _components) component.Render();
+            foreach (IComponent component in Components) component.Render();
         }
     }
 }

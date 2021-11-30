@@ -1,6 +1,6 @@
 ﻿namespace Sharp.Engine.Loading
 {
-    interface ILoaded
+    public interface ILoaded
     {
         public void Load();
 
