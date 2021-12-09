@@ -9,6 +9,8 @@ namespace Sharp.Engine
 
         public string Name;
 
+        public string FullPath;
+
         public void Load()
         {
             foreach (Object obj in Objects) obj.Load();

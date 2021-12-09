@@ -33,6 +33,7 @@ namespace Sharp.Engine.Bootstrap
 
                         // Set misc data
                         _scene.Name = _sceneJson["Name"].ToString();
+                        _scene.FullPath = scenePath;
 
                         foreach (JToken objData in _sceneJson["Objects"])
                         {
@@ -57,6 +58,8 @@ namespace Sharp.Engine.Bootstrap
                     }
                 }
             }
+
+            if (engine.Scenes.Count < 1) engine.Scenes.Add(new Scene() { FullPath = Engine.Path + "/Scenes/scene.sharp" });
 
             engine.ActiveScene = engine.Scenes[0];
             return engine;

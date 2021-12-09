@@ -28,5 +28,6 @@
             x:Name="View"
             Render="View_Render" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="127,27,100,127"
             />
+        <Button Content="Button" HorizontalAlignment="Left" Margin="750,126,0,0" VerticalAlignment="Top" Click="Button_Click"/>
     </Grid>
 </Window>
