@@ -12,22 +12,22 @@ namespace Sharp.Engine.Components
 
         public void Init()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void Load()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void Render()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void Update()
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

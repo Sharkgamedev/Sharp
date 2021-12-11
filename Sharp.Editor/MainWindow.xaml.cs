@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Diagnostics;
+using System.Windows;
 using Sharp.Engine;
 using Sharp.Engine.Components;
 
@@ -11,13 +12,16 @@ namespace Sharp.Editor
     {
         // Cannot explicitly include Sharp.Engine beccause it contains it's own implementation of 'Window'
         public Engine.Engine Engine;
+        public string ProjectPath = @"E:\Documents\Random Projects\Test\";
 
         public MainWindow()
         {
             InitializeComponent();
 
-            Engine = new Engine.Engine();
+            Engine = Sharp.Engine.Bootstrap.Bootstrapper.BootStrapEngine(ProjectPath);
             Engine.Load();
+
+            Debug.WriteLine("f");
 
             View.Start(new OpenTK.Wpf.GLWpfControlSettings 
             {
@@ -37,6 +41,11 @@ namespace Sharp.Editor
             sceneObj.Components.Add(new SpriteRenderer());
 
             Engine.ActiveScene.Objects.Add(sceneObj);
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            ProjectWriter.WriteStateToDisk(Engine, ProjectPath);
         }
     }
 }

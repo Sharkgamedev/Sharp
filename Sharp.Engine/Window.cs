@@ -9,15 +9,16 @@ namespace Sharp.Engine
     public class Window : GameWindow
     {
         public Engine Engine;
+        public string ProjectPath;
 
-        public Window(GameWindowSettings gameWindowSettings, NativeWindowSettings nativeWindowSettings) : base(gameWindowSettings, nativeWindowSettings) { }
+        public Window(GameWindowSettings gameWindowSettings, NativeWindowSettings nativeWindowSettings, string projPath) : base(gameWindowSettings, nativeWindowSettings) => ProjectPath = projPath;
 
         protected override void OnLoad()
         {
             base.OnLoad();
 
             GL.ClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-            Engine = new Engine(this);
+            Engine = new Engine(this, ProjectPath);
             Engine.Load();
         }
 

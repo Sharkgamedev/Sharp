@@ -6,7 +6,9 @@
         xmlns:glWpfControl="clr-namespace:OpenTK.Wpf;assembly=GLWpfControl"
         xmlns:local="clr-namespace:Sharp.Editor"
         mc:Ignorable="d"
-        Title="Sharp Editor" Height="450" Width="800">
+        Title="Sharp Editor" Height="450" Width="800"
+        Closing="Window_Closing"
+        >
     <Grid Background="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}">
         <TabControl Background="#FF6A6A6A" BorderBrush="#FF464646" Foreground="#FF858585" Height="125" VerticalAlignment="Bottom">
             <TabItem Header="Assets">

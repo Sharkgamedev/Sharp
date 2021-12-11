@@ -7,7 +7,7 @@ namespace Edge
 {
     public static class Program
     {
-        private static void Main()
+        private static void Main(string[] args)
         {
             var nativeWindowSettings = new NativeWindowSettings()
             {
@@ -16,7 +16,7 @@ namespace Edge
                 Flags = ContextFlags.ForwardCompatible,
             };
 
-            using (Window window = new Window(GameWindowSettings.Default, nativeWindowSettings))
+            using (Window window = new Window(GameWindowSettings.Default, nativeWindowSettings, args[0]))
             {
                 window.Run();
             }

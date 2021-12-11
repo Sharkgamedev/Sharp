@@ -10,18 +10,20 @@ namespace Sharp.Engine
     {
         public List<Scene> Scenes = new List<Scene>();
         public static List<Shader> Shaders = new List<Shader>();
+        public static string ProjectPath;
 
         public Scene ActiveScene;
 
         private Stopwatch _timer;
         private Window _window;
 
-        public Engine (Window window)
+        public Engine (Window window, string projPath)
         {
+            ProjectPath = projPath;
             _window = window;
         }
 
-        public Engine() {}
+        public Engine(string projPath) => ProjectPath = projPath;
 
         public void Load()
         {
