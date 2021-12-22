@@ -58,5 +58,7 @@ namespace Sharp.Engine
         {
             GL.UseProgram(Handle);
         }
+    
+        public int GetUniform(string name) => GL.GetUniformLocation(Handle, name);
     }
 }

@@ -38,7 +38,9 @@ namespace Sharp.Editor
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Object sceneObj = new Object();
+            // Init newly created component
             sceneObj.Components.Add(new SpriteRenderer());
+            sceneObj.Components[sceneObj.Components.Count - 1].Init();
 
             Engine.ActiveScene.Objects.Add(sceneObj);
         }
