@@ -1,11 +1,12 @@
 ﻿using Sharp.Engine.Loading;
 using System.Collections.Generic;
+using Sharp.Engine.Objects;
 
 namespace Sharp.Engine
 {
     public class Scene : ILoaded
     {
-        public List<Object> Objects = new List<Object>();
+        public List<GameObject> Objects = new List<GameObject>();
 
         public string Name;
 
@@ -13,17 +14,17 @@ namespace Sharp.Engine
 
         public void Load()
         {
-            foreach (Object obj in Objects) obj.Load();
+            foreach (GameObject obj in Objects) obj.Load();
         }
 
         public void Update()
         {
-            foreach (Object obj in Objects) obj.Update();
+            foreach (GameObject obj in Objects) obj.Update();
         }
 
         public void Render()
         {
-            foreach (Object obj in Objects) obj.Render();
+            foreach (GameObject obj in Objects) obj.Render();
         }
     }
 }

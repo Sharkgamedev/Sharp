@@ -19,6 +19,16 @@
             </TabItem>
         </TabControl>
         <Rectangle HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="0,27,0,127" Stroke="Black" Width="127" Fill="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}"/>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_File">
+                    <MenuItem Header="_Open"/>
+                    <MenuItem Header="_Close"/>
+                    <MenuItem Header="_Save"/>
+                </MenuItem>
+            </Menu>
+            <StackPanel></StackPanel>
+        </DockPanel>
         <Grid Height="27" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}">
             <TextBlock Text="File" FontSize="20"></TextBlock>
             <TextBlock Margin="40,0,0,0" Text="Edit" FontSize="20"></TextBlock>

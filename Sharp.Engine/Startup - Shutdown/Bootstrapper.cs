@@ -3,6 +3,7 @@ using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Sharp.Common.Logging;
+using Sharp.Engine.Objects;
 
 namespace Sharp.Engine.Bootstrap
 {
@@ -41,7 +42,7 @@ namespace Sharp.Engine.Bootstrap
 
                                 foreach (JToken objData in _sceneJson["Objects"])
                                 {
-                                    Object _object = new Object();
+                                    GameObject _object = new GameObject();
 
                                     int i = 0;
                                     foreach (string compName in objData["Components"])
@@ -51,6 +52,7 @@ namespace Sharp.Engine.Bootstrap
                                         // Create a new component of typename defined in the object's JSON component list
                                         IComponent _comp = (IComponent)Activator.CreateInstance("Sharp.Engine.dll", compName);
                                         _comp.Data = objData["ComponentData"][i].ToString(); // Custom data storage for the object
+                                        _comp.GetComponent().gameobject = _object; // Link the created componet to a GameObject
                                         _object.Components.Add(_comp); // Add the created component to the object
                                         i++;
                                     }

@@ -1,4 +1,5 @@
 ﻿using Sharp.Engine.Loading;
+using Sharp.Engine.Objects;
 
 namespace Sharp.Engine
 {
@@ -7,5 +8,7 @@ namespace Sharp.Engine
         public string Data { get; set; }
 
         public void Init();
+
+        public Component GetComponent();
     }
 }

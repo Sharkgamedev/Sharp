@@ -1,12 +1,13 @@
 ﻿using OpenTK.Graphics.OpenGL4;
+using OpenTK.Mathematics;
 using Sharp.Engine.Objects;
 using System;
 
 namespace Sharp.Engine.Components
 {
-    public class SpriteRenderer : GameObject
+    public class SpriteRenderer : Component
     {
-        private const string c_shaderLoc = "Shaders/simple_sprite";
+        private const string c_shaderLoc = "D:/Documents/Sharp/Sharp.Common/Shaders/simple_sprite";
 
         private int _vao;
         private int _vbo;
@@ -53,9 +54,14 @@ namespace Sharp.Engine.Components
 
         public override void Render()
         {
-            GL.Uniform3(_shader.GetUniform("u_position"), ref transform.position);
+            GL.Uniform3(_shader.GetUniform("u_position"), ref gameobject.transform.position);
             
             _shader.Use();
+            Matrix4 model = new Matrix4();
+            model += Matrix4.CreateTranslation(gameobject.transform.position);
+            model += Matrix4.CreateScale(gameobject.transform.scale);
+            model += Matrix4.CreateRotationZ(gameobject.transform.eulerAngles.Z);
+
             _texture.Use(TextureUnit.Texture0);
 
             // Unbind

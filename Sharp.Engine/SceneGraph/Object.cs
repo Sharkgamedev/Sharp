@@ -7,7 +7,7 @@ namespace Sharp.Engine
     {
         public List<IComponent> Components = new List<IComponent>();
 
-        public void Load()
+        public virtual void Load()
         {
             foreach (IComponent component in Components) component.Load();
         }

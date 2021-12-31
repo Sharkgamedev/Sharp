@@ -2,6 +2,7 @@
 using System.Windows;
 using Sharp.Engine;
 using Sharp.Engine.Components;
+using Sharp.Engine.Objects;
 
 namespace Sharp.Editor
 {
@@ -12,7 +13,7 @@ namespace Sharp.Editor
     {
         // Cannot explicitly include Sharp.Engine beccause it contains it's own implementation of 'Window'
         public Engine.Engine Engine;
-        public string ProjectPath = @"E:\Documents\Random Projects\Test\";
+        public string ProjectPath = @"D:\Documents\Random Projects\Test\";
 
         public MainWindow()
         {
@@ -37,7 +38,7 @@ namespace Sharp.Editor
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Object sceneObj = new Object();
+            GameObject sceneObj = new GameObject();
             // Init newly created component
             sceneObj.Components.Add(new SpriteRenderer());
             sceneObj.Components[sceneObj.Components.Count - 1].Init();
