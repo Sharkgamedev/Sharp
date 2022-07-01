@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
-using OpenTK.Graphics.OpenGL4;
-using OpenTK.Mathematics;
 using Sharp.Engine.Loading;
 
 namespace Sharp.Engine
@@ -40,10 +38,10 @@ namespace Sharp.Engine
             if (ActiveScene == null) return;
             for (int i = 0; i < Shaders.Count; i++) // Set 'global' shader uniforms
             {
-                GL.Uniform1(GL.GetUniformLocation(Shaders[i].Handle, "u_time"), _timer.Elapsed.TotalSeconds);
+                //GL.Uniform1(GL.GetUniformLocation(Shaders[i].Handle, "u_time"), _timer.Elapsed.TotalSeconds);
                 if (_window == null) return;
-                GL.Uniform2(GL.GetUniformLocation(Shaders[i].Handle, "u_resolution"), _window.Size);
-                GL.Uniform2(GL.GetUniformLocation(Shaders[i].Handle, "u_mouse"), _window.MouseState.Position);
+                //GL.Uniform2(GL.GetUniformLocation(Shaders[i].Handle, "u_resolution"), _window.Size);
+                //GL.Uniform2(GL.GetUniformLocation(Shaders[i].Handle, "u_mouse"), _window.MouseState.Position);
             }
 
             ActiveScene.Render();

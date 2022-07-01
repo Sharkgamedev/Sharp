@@ -1,50 +1,23 @@
-﻿using OpenTK.Graphics.OpenGL4;
-using OpenTK.Mathematics;
-using OpenTK.Windowing.Common;
-using OpenTK.Windowing.Desktop;
-using OpenTK.Windowing.GraphicsLibraryFramework;
+﻿using Windows.Win32.Foundation;
+using static Windows.Win32.PInvoke;
 
-namespace Sharp.Engine
+namespace Sharp.Engine.Windowing
 {
-    public class Window : GameWindow
+    public struct WindowInfo
     {
-        public Engine Engine;
-        public string ProjectPath;
+        public string Title;
+    }
 
-        public Window(GameWindowSettings gameWindowSettings, NativeWindowSettings nativeWindowSettings, string projPath) : base(gameWindowSettings, nativeWindowSettings) => ProjectPath = projPath;
+    public class Window
+    {
+        private HWND _pointer;
 
-        protected override void OnLoad()
+        public Window(WindowInfo Info)
         {
-            base.OnLoad();
-
-            GL.ClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-            Engine = new Engine(this, ProjectPath);
-            Engine.Load();
-        }
-
-        protected override void OnResize(ResizeEventArgs e)
-        {
-            base.OnResize(e);
-            GL.Viewport(0, 0, Size.X, Size.Y);
-        }
-
-        protected override void OnRenderFrame(FrameEventArgs args)
-        {
-            base.OnRenderFrame(args);
-
-            GL.Clear(ClearBufferMask.ColorBufferBit);
-            Engine.Render();
-
-            SwapBuffers();
-        }
-
-        protected override void OnUpdateFrame(FrameEventArgs args)
-        {
-            if (KeyboardState.IsKeyDown(Keys.Escape)) Close();
-
-            Engine.Update();
-
-            base.OnUpdateFrame(args);
+           // _pointer = CreateWindowEx(
+             //   Windows.Win32.UI.WindowsAndMessaging.WINDOW_EX_STYLE.WS_EX_APPWINDOW
+             //   Info.Title
+             //   )
         }
     }
 }

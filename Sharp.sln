@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31702.278
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project CD", "Project CD\Project CD.csproj", "{C978E34F-57F5-4729-AC4D-0B70C88F7AFD}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -11,20 +11,13 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sharp.Engine", "Sharp.Engine\Sharp.Engine.csproj", "{DE1EF468-D527-4761-8CD1-55710DA2EF0D}"
 	ProjectSection(ProjectDependencies) = postProject
 		{45E6AB9B-44F7-4505-9DA3-5F0A6C795136} = {45E6AB9B-44F7-4505-9DA3-5F0A6C795136}
-		{44090ECA-FD90-4C21-AC33-191BE7644385} = {44090ECA-FD90-4C21-AC33-191BE7644385}
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sharp.Engine.Tests", "Sharp.Engine.Tests\Sharp.Engine.Tests.csproj", "{45E6AB9B-44F7-4505-9DA3-5F0A6C795136}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sharp.Editor", "Sharp.Editor\Sharp.Editor.csproj", "{509A856D-2C05-46A7-8B76-839110C2F42D}"
-	ProjectSection(ProjectDependencies) = postProject
-		{78F89898-47F0-4B4A-A1E2-19993BE1BD53} = {78F89898-47F0-4B4A-A1E2-19993BE1BD53}
-		{44090ECA-FD90-4C21-AC33-191BE7644385} = {44090ECA-FD90-4C21-AC33-191BE7644385}
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sharp.Common", "..\..\Sharp\Sharp.Common\Sharp.Common.csproj", "{42C84316-6A53-4B63-8FA8-9056AE49C81F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sharp.Editor.Tests", "Sharp.Editor.Tests\Sharp.Editor.Tests.csproj", "{78F89898-47F0-4B4A-A1E2-19993BE1BD53}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sharp.Common", "Sharp.Common\Sharp.Common.csproj", "{44090ECA-FD90-4C21-AC33-191BE7644385}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sharp.Render", "Sharp.Render\Sharp.Render.csproj", "{B49FB12E-23E8-4680-84C0-76853055BD98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,18 +37,14 @@ Global
 		{45E6AB9B-44F7-4505-9DA3-5F0A6C795136}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45E6AB9B-44F7-4505-9DA3-5F0A6C795136}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45E6AB9B-44F7-4505-9DA3-5F0A6C795136}.Release|Any CPU.Build.0 = Release|Any CPU
-		{509A856D-2C05-46A7-8B76-839110C2F42D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{509A856D-2C05-46A7-8B76-839110C2F42D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{509A856D-2C05-46A7-8B76-839110C2F42D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{509A856D-2C05-46A7-8B76-839110C2F42D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{78F89898-47F0-4B4A-A1E2-19993BE1BD53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{78F89898-47F0-4B4A-A1E2-19993BE1BD53}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{78F89898-47F0-4B4A-A1E2-19993BE1BD53}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{78F89898-47F0-4B4A-A1E2-19993BE1BD53}.Release|Any CPU.Build.0 = Release|Any CPU
-		{44090ECA-FD90-4C21-AC33-191BE7644385}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{44090ECA-FD90-4C21-AC33-191BE7644385}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{44090ECA-FD90-4C21-AC33-191BE7644385}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{44090ECA-FD90-4C21-AC33-191BE7644385}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42C84316-6A53-4B63-8FA8-9056AE49C81F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42C84316-6A53-4B63-8FA8-9056AE49C81F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42C84316-6A53-4B63-8FA8-9056AE49C81F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42C84316-6A53-4B63-8FA8-9056AE49C81F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B49FB12E-23E8-4680-84C0-76853055BD98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B49FB12E-23E8-4680-84C0-76853055BD98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B49FB12E-23E8-4680-84C0-76853055BD98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B49FB12E-23E8-4680-84C0-76853055BD98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

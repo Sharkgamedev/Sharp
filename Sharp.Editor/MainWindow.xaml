@@ -19,20 +19,24 @@
             </TabItem>
         </TabControl>
         <Rectangle HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="0,27,0,127" Stroke="Black" Width="127" Fill="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}"/>
-        <DockPanel>
-            <Menu DockPanel.Dock="Top">
-                <MenuItem Header="_File">
-                    <MenuItem Header="_Open"/>
-                    <MenuItem Header="_Close"/>
-                    <MenuItem Header="_Save"/>
+        
+        <Grid Height="27" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}">
+            <Menu Width="Auto" Height="20" Background="#FFA9D1F4" DockPanel.Dock="Top">
+                <MenuItem Header="_Emulator">
+                    <MenuItem Header="Load..."/>
+                    <MenuItem Header="Load again"/>
+                    <Separator />
+                    <MenuItem>
+                        <MenuItem.Header>
+                            <DockPanel>
+                                <TextBlock>Step</TextBlock>
+                                <TextBlock Width="10"></TextBlock>
+                                <TextBlock HorizontalAlignment="Right">F2</TextBlock>
+                            </DockPanel>
+                        </MenuItem.Header>
+                    </MenuItem>
                 </MenuItem>
             </Menu>
-            <StackPanel></StackPanel>
-        </DockPanel>
-        <Grid Height="27" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}">
-            <TextBlock Text="File" FontSize="20"></TextBlock>
-            <TextBlock Margin="40,0,0,0" Text="Edit" FontSize="20"></TextBlock>
-            <TextBlock Margin="80,0,0,0"  Text="Options" FontSize="20"></TextBlock>
         </Grid>
         <Rectangle HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="0,27,0,127" Stroke="Black" Width="100" Fill="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}"/>
 
