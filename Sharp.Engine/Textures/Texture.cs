@@ -7,7 +7,7 @@ using PixelFormat = OpenTK.Graphics.OpenGL4.PixelFormat;
 
 namespace Sharp.Engine
 {
-    class Texture
+    public class Texture
     {
         public readonly int Handle;
 

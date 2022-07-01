@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sharp.Engine.Objects
 {
@@ -10,7 +6,7 @@ namespace Sharp.Engine.Objects
     {
         public string Data { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        public GameObject gameobject;
+        public GameObject gameobject { get; set; }
 
         public virtual void Init()
         {

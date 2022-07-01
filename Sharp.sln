@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31702.278
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project CD", "Project CD\Project CD.csproj", "{C978E34F-57F5-4729-AC4D-0B70C88F7AFD}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -16,15 +16,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sharp.Engine", "Sharp.Engin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sharp.Engine.Tests", "Sharp.Engine.Tests\Sharp.Engine.Tests.csproj", "{45E6AB9B-44F7-4505-9DA3-5F0A6C795136}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sharp.Editor", "Sharp.Editor\Sharp.Editor.csproj", "{509A856D-2C05-46A7-8B76-839110C2F42D}"
-	ProjectSection(ProjectDependencies) = postProject
-		{78F89898-47F0-4B4A-A1E2-19993BE1BD53} = {78F89898-47F0-4B4A-A1E2-19993BE1BD53}
-		{44090ECA-FD90-4C21-AC33-191BE7644385} = {44090ECA-FD90-4C21-AC33-191BE7644385}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sharp.Editor.Tests", "Sharp.Editor.Tests\Sharp.Editor.Tests.csproj", "{78F89898-47F0-4B4A-A1E2-19993BE1BD53}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sharp.Common", "Sharp.Common\Sharp.Common.csproj", "{44090ECA-FD90-4C21-AC33-191BE7644385}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sharp.Common", "Sharp.Common\Sharp.Common.csproj", "{44090ECA-FD90-4C21-AC33-191BE7644385}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,14 +36,6 @@ Global
 		{45E6AB9B-44F7-4505-9DA3-5F0A6C795136}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45E6AB9B-44F7-4505-9DA3-5F0A6C795136}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45E6AB9B-44F7-4505-9DA3-5F0A6C795136}.Release|Any CPU.Build.0 = Release|Any CPU
-		{509A856D-2C05-46A7-8B76-839110C2F42D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{509A856D-2C05-46A7-8B76-839110C2F42D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{509A856D-2C05-46A7-8B76-839110C2F42D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{509A856D-2C05-46A7-8B76-839110C2F42D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{78F89898-47F0-4B4A-A1E2-19993BE1BD53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{78F89898-47F0-4B4A-A1E2-19993BE1BD53}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{78F89898-47F0-4B4A-A1E2-19993BE1BD53}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{78F89898-47F0-4B4A-A1E2-19993BE1BD53}.Release|Any CPU.Build.0 = Release|Any CPU
 		{44090ECA-FD90-4C21-AC33-191BE7644385}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{44090ECA-FD90-4C21-AC33-191BE7644385}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44090ECA-FD90-4C21-AC33-191BE7644385}.Release|Any CPU.ActiveCfg = Release|Any CPU

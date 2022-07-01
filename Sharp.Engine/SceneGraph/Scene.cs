@@ -12,6 +12,16 @@ namespace Sharp.Engine
 
         public string FullPath;
 
+        public GameObject CreateObject()
+        {
+            GameObject obj = new ();
+            obj.Load();
+
+            Objects.Add(obj);
+
+            return obj;
+        }
+
         public void Load()
         {
             foreach (GameObject obj in Objects) obj.Load();

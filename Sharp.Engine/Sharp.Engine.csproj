@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,25 +13,5 @@
   <ItemGroup>
     <ProjectReference Include="..\Sharp.Common\Sharp.Common.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Shaders\shader.frag">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Shaders\shader.vert">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  <None Update="Textures\Robot.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
-  <Target Name="CopyDLLs" AfterTargets="Build">
-    <Message Text="Copying DLLs" Importance="High" />
-
-    <Copy SourceFiles="$(TargetDir)$(ProjectName).dll;$(TargetDir)$(ProjectName).pdb" DestinationFolder="C:\Users\OwenS\Desktop\Edge\" />
-
-    <Message Text="Copied build files" Importance="High" />
-  </Target>
   
 </Project>

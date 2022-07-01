@@ -10,6 +10,46 @@ namespace Sharp.Common.Files
     public static class FileHandler
     {
         /// <summary>
+        /// Ensures a File exists by creating one if it does not already exist
+        /// </summary>
+        /// <param name="Path"> The File to ensure exists </param>
+        /// <returns> Was the operation a success </returns>
+        public static bool EnsureFileExists(string Path)
+        {
+            if (File.Exists(Path)) return true;
+            try
+            {
+                File.Create(Path);
+                return true;
+            }
+            catch (Exception e)
+            {
+                Logger.Log($"Failed to create File {Path}, encountered exception {e.Message}. {e.StackTrace}", Logger.ErrorLevel.Error);
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Ensures a Directory exists by creating one if it does not already exist
+        /// </summary>
+        /// <param name="Path"> The Directory to ensure exists </param>
+        /// <returns> Was the operation a success </returns>
+        public static bool EnsureDirectoryExists(string Path)
+        {
+            if (Directory.Exists(Path)) return true;
+            try
+            {
+                Directory.CreateDirectory(Path);
+                return true;
+            }
+            catch (Exception e)
+            {
+                Logger.Log($"Failed to create Directory {Path}, encountered exception {e.Message}. {e.StackTrace}", Logger.ErrorLevel.Error);
+                return false;
+            }
+        }
+
+        /// <summary>
         /// Reads a file to an array
         /// </summary>
         /// <param name="Data"> The array to store the read file in </param>
@@ -102,7 +142,7 @@ namespace Sharp.Common.Files
         /// <returns> Was the operation successfull? </returns>
         public static bool AddToFile(string Path, string FileName, string Data)
         {
-            if (!Directory.Exists(Path + FileName)) return false;
+            if (!File.Exists(Path + FileName)) return false;
             List<string> _file;
             try
             {

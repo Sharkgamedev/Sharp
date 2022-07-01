@@ -13,13 +13,19 @@ namespace Sharp.Engine
 
         public Window(GameWindowSettings gameWindowSettings, NativeWindowSettings nativeWindowSettings, string projPath) : base(gameWindowSettings, nativeWindowSettings) => ProjectPath = projPath;
 
+        protected virtual void Init()
+        {
+            Engine = new Engine(this, ProjectPath);
+            Engine.ActiveScene = new Scene();
+        }
+
         protected override void OnLoad()
         {
+            Init();
             base.OnLoad();
 
-            GL.ClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-            Engine = new Engine(this, ProjectPath);
             Engine.Load();
+            GL.ClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         }
 
         protected override void OnResize(ResizeEventArgs e)

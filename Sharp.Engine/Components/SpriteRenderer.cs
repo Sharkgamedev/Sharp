@@ -7,8 +7,6 @@ namespace Sharp.Engine.Components
 {
     public class SpriteRenderer : Component
     {
-        private const string c_shaderLoc = "D:/Documents/Sharp/Sharp.Common/Shaders/simple_sprite";
-
         private int _vao;
         private int _vbo;
         private Shader _shader;
@@ -17,12 +15,12 @@ namespace Sharp.Engine.Components
         private readonly float[] r_verts = 
             { 
                 // 2P, 2T
-                1.0f, 0.0f, 1.0f, 0.0f,
-                1.0f, 1.0f, 1.0f, 1.0f,
-                0.0f, 0.0f, 0.0f, 0.0f,
-                // Triangle 2
-                0.0f, 0.0f, 0.0f, 0.0f,
                 0.0f, 1.0f, 0.0f, 1.0f,
+                1.0f, 0.0f, 1.0f, 0.0f,
+                0.0f, 0.0f, 0.0f, 0.0f, 
+                // Triangle 2
+                0.0f, 1.0f, 0.0f, 1.0f,
+                1.0f, 1.0f, 1.0f, 1.0f,
                 1.0f, 0.0f, 1.0f, 0.0f
             };
 
@@ -32,8 +30,8 @@ namespace Sharp.Engine.Components
 
             _vao = GL.GenVertexArray();
             _vbo = GL.GenBuffer();
-            _shader = new Shader($"{c_shaderLoc}.frag", $"{c_shaderLoc}.vert");
-            _texture = new Texture("Textures/Robot.png");
+            _shader = new Shader($"Content/Shaders/shader.vert", $"Content/Shaders/shader.frag");
+            _texture = new Texture("Content/Textures/Robot.png");
         }
 
         public override void Load()
@@ -54,8 +52,10 @@ namespace Sharp.Engine.Components
 
         public override void Render()
         {
+            var x = new Vector3(1, 1, 1);
             GL.Uniform3(_shader.GetUniform("u_position"), ref gameobject.transform.position);
-            
+            GL.Uniform3(_shader.GetUniform("spriteColor"), ref x);
+
             _shader.Use();
             Matrix4 model = new Matrix4();
             model += Matrix4.CreateTranslation(gameobject.transform.position);

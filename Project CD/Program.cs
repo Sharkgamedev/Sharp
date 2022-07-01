@@ -3,20 +3,20 @@ using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Desktop;
 using Sharp.Engine;
 
-namespace Edge
+namespace ProjectCD
 {
     public static class Program
     {
         private static void Main(string[] args)
         {
-            var nativeWindowSettings = new NativeWindowSettings()
+            NativeWindowSettings _nativeWindowSettings = new()
             {
                 Size = new Vector2i(1280, 720),
-                Title = "Edge - New Project",
+                Title = "Project CD",
                 Flags = ContextFlags.ForwardCompatible,
             };
 
-            using (Window window = new Window(GameWindowSettings.Default, nativeWindowSettings, args[0]))
+            using (Game window = new (GameWindowSettings.Default, _nativeWindowSettings, "Content"))
             {
                 window.Run();
             }
